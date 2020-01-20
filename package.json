@@ -1,0 +1,16 @@
+{
+  "name": "doxey-client-js-sample",
+  "version": "1.0.0",
+  "description": "Doxey API sample client in HTML/JS",
+  "author": "Floreysoft",
+  "private": true,
+  "scripts": {
+    "start-simple": "node main.js",
+    "start": "webpack-dev-server --open"
+  },
+  "devDependencies": {
+    "express": "~4.9.0",
+    "doxey-client-nodejs": "~1.0.11"
+  },
+  "dependencies": {}
+}
