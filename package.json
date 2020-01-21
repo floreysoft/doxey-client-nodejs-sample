@@ -5,12 +5,11 @@
   "author": "Floreysoft",
   "private": true,
   "scripts": {
-    "start-simple": "node main.js",
-    "start": "webpack-dev-server --open"
+    "start": "node main.js"
   },
   "devDependencies": {
     "express": "~4.9.0",
-    "doxey-client-nodejs": "~1.0.11"
+    "doxey-client-nodejs": "~1.0.16"
   },
   "dependencies": {}
 }

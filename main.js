@@ -1,10 +1,7 @@
-const url = require("url");
 const http = require("http");
 const doxeyclient = require("doxey-client-nodejs");
 
 const app = http.createServer((request, response) => {
-    var query = url.parse(request.url, true).query;
-
     var model = {
         "name": "John Doe",
         "company": "ACME",
@@ -41,14 +38,14 @@ const app = http.createServer((request, response) => {
         ]
     };
 
-    doxeyclient.mergeUrl ("api.doxey.io", 80, "/merge", "https://docs.google.com/document/d/1urL-JV2m85jry1_tatbjSFBjUZgGiMmwwNR9X8UTUTg/edit", "PDF", model, "de-DE", "GMT+01:00", "EUR", "")
+    doxeyclient.mergeUrl ("https://api.doxey.io/merge", "https://docs.google.com/document/d/1urL-JV2m85jry1_tatbjSFBjUZgGiMmwwNR9X8UTUTg/edit", "PDF", model, "de-DE", "GMT+01:00", "EUR", "")
     .then((buffer) => {
         response.writeHead(200, { "Content-Type": "application/pdf", "Content-Disposition": "inline" });
         response.end(buffer, 'binary');
     })
-    .catch(_ => {
+    .catch(x => {
         response.writeHead(500, { "Content-Type": "text/plain" });
-        response.end("Error");
+        response.end("Error " + x);
     });
 });
 
